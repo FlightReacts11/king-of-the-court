@@ -7,6 +7,7 @@
 body {
     overflow-y: hidden;
     overflow-x: hidden;
+    touch-action: none;
 }
 
 /* Opening Movie Animation Part 1 */
@@ -77,4 +78,6 @@ body {
     font-size: 10rem;
     z-index: 2;
     pointer-events: none;
+    font-family: 'limelight'
 }
+
