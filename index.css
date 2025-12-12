@@ -176,8 +176,8 @@ h1 {
 }
 
 .image-effect {
-    height: 25vh;
-    width: 43vw;
+    height: 100%;
+    width: 100%;
     border-radius: 5px;
 }
 
