@@ -111,6 +111,7 @@ h1 {
 .hide-loader2 {
     display: none;
 }
+    
 
 
 .loader2 {
@@ -224,6 +225,25 @@ h1 {
 
  /*Movie Animation Part 3*/
 
+ .letter-splitter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+ }
+
+ .letter-splitter.top {
+    clip-path: inset(0 0 50% 0);
+    display: inline-block;
+ }
+
+ .letter-splitter.bottom {
+    clip-path: inset(50% 0 0 0);
+    display: inline-block;
+ }
+
  .letter-mask {
     display: none;
     justify-content: center;
@@ -237,6 +257,7 @@ h1 {
  .letter-mask-h2 {
     color: white;
     font-size: 6.5rem;
+    pointer-events: none;
  }
 
  .letter {
@@ -246,13 +267,115 @@ h1 {
  .strikethrough {
     position: absolute;
     background-color: white;
-    height: 5px;
+    height: 4px;
     top: 50%;
     left: 0%;
     z-index: 2
  }
 
 
+
+
+ /* Landing Page */
+
+ #landing-page {
+    background-color: grey;
+    height: 100vh;
+    width: 100vw;
+    display: none;
+    grid-template-rows: auto 1fr;
+    overflow: hidden;
+ }
+
+ .h2-cleveland, .h2-miami, .h2-la {
+    text-align: center;
+    cursor: pointer;
+    text-decoration: underline;
+ }
+
+ .h2-cleveland {
+
+ }
+
+ .h2-miami {
+
+ }
+
+ .h2-la {
+    
+ }
+
+ .card-container {
+    display: flex;
+    gap: 30px;
+    padding: 0px 10px;
+    align-items: center;
+    justify-content: center;
+ }
+
+ .cards {
+    background-color: red;
+    height: 55vh;
+    align-self: center;
+    border-radius: 10px;
+    width: 22rem;
+    position: absolute;
+    transform-origin: 50% 150%;
+    box-shadow: 5px 5px 6px black;
+ }
+
+ .cards.first-stint {
+    transform: translateX(-100px);
+    z-index: 3;
+ }
+
+ .cards.miami {
+    transform: translateX(-50px);
+    z-index: 2;
+ }
+
+ .cards.second-stint {
+    transform: translateX(-0px);
+    z-index: 1;
+ }
+
+ .cards.lakers {
+    transform: translateX(50px);
+    z-index: 0;
+ }
+
+
+ .top-half {
+    background-color: black;
+    border-radius: 10px;
+ }
+
+ .top-half {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+ .top-half, .bottom-half {
+    height: 50%;
+    width: 100%;
+  
+ }
+
+ .bottom-half {
+    display: block;
+    padding-top: 5px;
+ }
+
+ .card-description {
+    text-align: center;
+    padding-top: 5px;
+    margin: 0 5px
+ }
+
+
+
+ /* Media Query For Animation Part 1 */
 
 @media only screen and (max-width: 768px) {
     .inner-circle {
@@ -264,4 +387,44 @@ h1 {
         width: 400px;
         height: 400px;
     }
+}
+
+
+/* Media Query For Animation Part 2 */
+
+@media only screen and (max-width: 768px) {
+    .holder1, .holder2, .holder3, .holder4 {
+        grid-template-columns: 1fr; 
+        width: 100vw;
+        justify-items: center; 
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+   
+    .bg-effect:nth-child(2) {
+        display: none;
+    }
+}
+
+
+
+/* Media Query For Animation Part 3 */
+
+@media only screen and (max-width: 768px) {
+    .letter-mask-h2 {
+        font-size: 4rem
+    }
+
+    .strikethrough {
+        height: 3.5px;
+    }
+}
+
+
+
+/* Media Query For Landing Page */
+
+@media only screen and (max-width: 768px) {
+
 }

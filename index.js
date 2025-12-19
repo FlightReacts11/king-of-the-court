@@ -79,6 +79,7 @@ onComplete() {
 
 
 
+
 //End Of Opening Part 1//
 
 
@@ -90,7 +91,7 @@ let arrOfColors = [
     "linear-gradient(180deg, rgba(207, 39, 39, 1) 0%, rgba(77, 24, 24, 1) 50%, rgba(0, 0, 0, 1) 100%)",
     "linear-gradient(180deg,rgba(255, 186, 36, 1) 6%, rgba(166, 20, 20, 1) 67%, rgba(219, 4, 4, 1) 100%)",
     "linear-gradient(180deg,rgba(142, 27, 171, 1) 0%, rgba(137, 25, 189, 1) 23%, rgba(217, 182, 28, 1) 100%)",
-    "linear-gradient(0deg, black, black)",,
+    "linear-gradient(0deg, black, black)",
 ]
 
 
@@ -387,6 +388,7 @@ function imageSetFour() {
             }
         }, "+=0.4" )
 }
+        
 
 
 
@@ -395,28 +397,61 @@ function imageSetFour() {
 
 // Opening Part 3 //
 
+
+
 function letterTransition() {
 
     gsap.set(".letter-mask", { display: "flex" });
     let tl = gsap.timeline();
 
-    tl.from(".letter", {
+    tl.from(".letter-splitter.top .letter", {
         opacity: 0,
         y: 60,
         duration: 0.8,
         stagger: {
-            amount: 2,
+            amount: 2.5,
             each: 0.5,
         }
-    })
+    }, "sameTime")
+
+    tl.from(".letter-splitter.bottom .letter", {
+        opacity: 0,
+        y: 60,
+        duration: 0.8,
+        stagger: {
+            amount: 2.5,
+            each: 0.5,
+        }
+    }, "sameTime")
 
     tl.to(".strikethrough", {
         width: "100%",
         duration: 2,
         ease: CustomEase.create("custom", "M0,0 C0.046,0.091 0.58,0.133 0.715,0.154 0.808,0.168 0.72,1 1,1 "),
 
-}, "+=0.5");
- 
+        onComplete() {
+            gsap.set(".strikethrough", { display: "none", })
+        }
+
+}, "-=0.1");
+
+tl.set("#landing-page", { display: "block", })
+
+tl.to(".letter-splitter.top", {
+    y: -1000,
+    duration: 2.2,
+    ease: "expo.in",
+})
+
+tl.to(".letter-splitter.bottom", {
+    y: 1000,
+    duration: 2.2,
+    ease: "expo.in",
+
+    onComplete() {
+        gsap.set(".movie-part-3", { display: "none" })
+    }
+}, "<")
 
 }
 
@@ -424,7 +459,20 @@ function letterTransition() {
 
 
 
+
+
+
+
+
 //Homescreen Section//
+
+function cardAnimation() {
+    gsap.set("#landing-page", {
+        display: "grid"
+    })
+}
+
+
 const homescreenColorChange = []
 
 function movieHover(movie, indexColor) {
