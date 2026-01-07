@@ -1,8 +1,7 @@
-gsap.registerPlugin(ScrollTrigger)
+/* This JS file contains all the opening animations and landing page.
+The documentary parts have their own file. */
 
-
-
-//Opening Movie Animation Part 1//
+// Opening Movie Animation Part 1 //
 
 let count = 10;
 let timer = document.querySelector('.countdown');
@@ -80,7 +79,7 @@ onComplete() {
 
 
 
-//End Of Opening Part 1//
+// End Of Opening Part 1 //
 
 
 
@@ -99,7 +98,7 @@ gsap.set(".holder-mask", {
     rotation: 0.1,
 })
 
-//imageSetOne / Cleveland//
+// imageSetOne / Cleveland //
 
 function imageSetOne() {
     let tl = gsap.timeline();
@@ -166,7 +165,7 @@ function imageSetOne() {
 
 
 
-//imageSetTwo / Miami//
+// imageSetTwo / Miami //
 
 function imageSetTwo() {
     let tl = gsap.timeline();
@@ -239,7 +238,7 @@ function imageSetTwo() {
 
 }
 
-//imageSetThree / Cleveland 2nd Stint//
+// imageSetThree / Cleveland 2nd Stint //
 
 function imageSetThree() {
     let tl = gsap.timeline();
@@ -311,7 +310,7 @@ function imageSetThree() {
         }, "+=0.4" )
 }
 
-//ImageSetFour / Los Angeles//
+// ImageSetFour / Los Angeles //
 
 function imageSetFour() {
     let tl = gsap.timeline();
@@ -435,7 +434,7 @@ function letterTransition() {
 
 }, "-=0.1");
 
-tl.set("#landing-page", { display: "block", })
+tl.set("#landing-page", { display: "flex", })
 
 tl.to(".letter-splitter.top", {
     y: -1000,
@@ -460,23 +459,220 @@ tl.to(".letter-splitter.bottom", {
 
 
 
-
-
-
-
-//Homescreen Section//
+// Homescreen Section //
 
 function cardAnimation() {
     gsap.set("#landing-page", {
-        display: "grid"
+        display: "flex",
     })
 }
 
 
-const homescreenColorChange = []
 
-function movieHover(movie, indexColor) {
-    movie.addEventListener('mouseenter', () => {
+
+
+// Javascript for Changing Videos and Cards //
+
+const leftArrow = document.getElementById("left-arrow");
+const rightArrow = document.getElementById("right-arrow");
+
+let current = 0;
+const cardCycle = document.querySelectorAll(".cards");
+
+
+let videos = [
+    "videos/LebronCleveland1(1).mp4",
+    "videos/LebronMiami1(1).mp4",
+    "videos/Lebron2ndStint(1).mp4",
+    "videos/LebronLakers(1).mp4",
+]
+
+let cardNames = [
+    "first-stint", 
+    "miami", 
+    "second-stint", 
+    "lakers"];
+
+let backgroundChange = [
+    "url('assets/cavaliers (1).jpg')",
+    "url('assets/miami.jpg')",
+    "url('assets/cavaliers (1).jpg')",
+    "url('assets/lakers.jpg')",
+]
+
+let bottomHalfColors = [
+    "#FD0101",
+    "#333333ff",
+    "#FD0101",
+    "#9c0f85ff",
+]
+
+
+const videoChange = document.getElementById("video");
+
+// Logic to change the cards //
+function changeCard() {
+   cardCycle.forEach(card => {
+
+    card.classList.remove("js-top-card");
+
+    if (card === cardCycle[current]) {
+        card.classList.add("js-top-card");
         
-    })
+    }
+
+    if (card !== cardCycle[current]) {
+        card.classList.remove("js-top-card");
+    }
+   })
 }
+
+    // Right arrow event listener //
+    rightArrow.addEventListener('click', () => {
+    current ++;
+
+    if (current > videos.length - 1) {
+        current = 0;
+    }
+
+    // Function for layering cards on click and background change //
+    function cardLayeringRight() {
+        
+        cardCycle.forEach((card, index) => {
+
+            let cardFinder = current - index;
+           
+            // Logic for layering cards //
+             if (cardFinder < 0) {
+                cardFinder = cardCycle.length + cardFinder;
+                cardFinder = cardFinder % cardCycle.length;
+                card.querySelector(".h3").style.display = "block";
+
+             } 
+
+             // Logic for hiding h3 that isnt the top card //
+
+             if (cardFinder === 0) {
+                card.querySelector(".h3").style.display = "block";
+                card.querySelector(".card-button-div").style.display = "block";
+
+             } else {
+                card.querySelector(".h3").style.display = "none";
+                card.querySelector(".card-button-div").style.display = "none";
+             }
+
+             // Logic for layering cards correctly and changing bottom half colors //
+
+             card.classList.remove("first-stint", "miami", "second-stint", "lakers");
+             card.classList.add(cardNames[cardFinder]);
+             card.querySelector(".bottom-half").style.backgroundColor = bottomHalfColors[current];  
+      })
+
+            // Background change logic //
+            for (let i = 0; i < backgroundChange.length; i++) {
+                
+                if (current === i) {
+                    document.getElementById("landing-page").style.backgroundImage = backgroundChange[i];
+                    document.getElementById("landing-page").style.transition = "background-image 0.5s ease-in-out";
+
+                } 
+        }  
+    }
+        
+    videoChange.src = videos[current];
+    videoChange.load()
+    videoChange.play()
+    changeCard()
+    cardLayeringRight() 
+    videoHandler()    
+    })
+   
+
+    // Left Arrow event listener //
+leftArrow.addEventListener('click', () => {
+    current --;
+
+    if (current < 0) {
+        current = videos.length - 1;
+    }
+
+    
+
+    // Logic for layering cards //
+
+    function cardLayeringLeft() {
+        
+        cardCycle.forEach((card, index) => {
+
+            let cardFinder = current - index;
+           
+            // Logic for layering cards //
+             if (cardFinder < 0) {
+                cardFinder = cardCycle.length + cardFinder;
+                cardFinder = cardFinder % cardCycle.length;
+                
+             } 
+
+             if (cardFinder === 0) {
+                card.querySelector(".h3").style.display = "block";
+                card.querySelector(".card-button-div").style.display = "block";
+             } else {
+                card.querySelector(".h3").style.display = "none";
+                card.querySelector(".card-button-div").style.display = "none";
+             }
+
+             card.classList.remove("first-stint", "miami", "second-stint", "lakers");
+             card.classList.add(cardNames[cardFinder]);
+             card.querySelector(".bottom-half").style.backgroundColor = bottomHalfColors[current];  
+      })
+
+        for (let i = backgroundChange.length - 1; i >= 0; i--) {
+            if (current === i) {
+                document.getElementById("landing-page").style.backgroundImage = backgroundChange[i];
+            }
+        }
+    }
+
+    videoChange.src = videos[current];
+    videoChange.load()
+    videoChange.play()
+    changeCard()
+    cardLayeringLeft()
+    videoHandler()
+})
+
+
+// Logic for videos on media query // 
+
+function videoHandler() {
+
+    cardCycle.forEach((card, index) => {
+
+        let mobileVideos = card.querySelector(".lebron-videos");
+        let mobileImages = card.querySelector(".lebron-images");
+
+        if (current === index && window.innerWidth <= 880) {
+            mobileVideos.play();
+            mobileImages.style.display = "none";
+
+        } else {
+            mobileVideos.pause();
+            mobileImages.style.display = "block";
+        }
+
+        if (current === index && window.innerWidth > 880) {
+            mobileVideos.style.display = "none";
+
+        } else {
+            mobileVideos.style.display = "block";
+        }
+    }) 
+}
+
+window.addEventListener("resize", () => {
+    videoHandler()
+})
+
+/*
+videoHandler()
+*/

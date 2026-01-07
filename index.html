@@ -150,49 +150,116 @@
        <section>
     <div class="hero-container" id="landing-page">
         
-        <div class="timeline"></div>
-
+        
         <div class="card-container">
-
-            <div class="cards first-stint">
+            
+            <div class="cards first-stint js-top-card">
                 <div class="top-half"> 
-                      
+                    <img class="lebron-images" src="assets/homepage-cleveland1.jpg">
+                    <video class="lebron-videos" muted loop playsinline preload="none">
+                        <source src="videos/LebronCleveland1(1).mp4">
+                    </video>
                 </div>
                 <div class="bottom-half">
                      <h2 class="h2-cleveland">Cleveland</h2>
                         <div class="card-description">
-                            <h3>Relive LeBron’s explosive rise to stardom in Cleveland, the beginning of a journey that would redefine basketball history.</h3>
+                            <h3 class="h3 h3-cleveland">Relive LeBron’s explosive rise to stardom in Cleveland, the beginning of a journey that would redefine basketball history.</h3>
+                             <div class="card-button-div">
+                            <button class="card-button one">Enter Part 1</button>
+                            </div>
                         </div>
                     </div>
             </div>
 
             <div class="cards miami">
                 <div class="top-half">
-                    
+                    <img class="lebron-images" src="assets/homepage-miami.jpg">
+                    <video class="lebron-videos" muted loop playsinline preload="none">
+                        <source src="videos/LebronMiami1(1).mp4">
+                    </video>
                 </div>
                 <div class="bottom-half">
                     <h2 class="h2-miami">Miami</h2>
+                    <div class="card-description">
+                        <h3 class="h3 h3-miami">Experience the emergence of the Miami Heat Big 3. LeBron joins up with Dwyane Wade and Chris Bosh to 
+                            win championships in South Beach.
+                        </h3>
+                        <div class="card-button-div">
+                        <button class="card-button two">Enter Part 2</button>
+                        </div>
+                    </div>
+                    
                     </div>
             </div>
 
             <div class="cards second-stint">
                 <div class="top-half">
-                    
+                    <img class="lebron-images" src="assets/homepage-cleveland2.jpg">
+                    <video class="lebron-videos" muted loop playsinline preload="none">
+                        <source src="videos/Lebron2ndStint(1).mp4">
+                    </video>
                 </div>
                 <div class="bottom-half">
                     <h2 class="h2-cleveland">Second-Stint</h2>
+                     <div class="card-description">
+                        <h3 class="h3 h3-cleveland two">LeBron returns to Cleveland after his success in Miami with one goal in mind: bringing a championship to the city.
+                            Relive LeBron's historic playoff runs.
+                        </h3>
+                        <div class="card-button-div">
+                        <button class="card-button three">Enter Part 3</button>
+                        </div>
+                    </div>
                     </div>
             </div>
 
             <div class="cards lakers">
                 <div class="top-half">
-                    
+                    <img class="lebron-images" src="assets/homepage-lakers.jpg">
+                    <video class="lebron-videos" muted loop playsinline preload="none">
+                        <source src="videos/LebronLakers(1).mp4">
+                    </video>
                 </div>
                 <div class="bottom-half">
                     <h2 class="h2-la">LA</h2>
+                     <div class="card-description">
+                        <h3 class="h3 h3-la">LeBron arrives in Los Angeles to the define the final chapter of his career and 
+                            return the Lakers back to their former glory.
+                        </h3>
+                        <div class="card-button-div">
+                        <button class="card-button four">Enter Part 4</button>
+                        </div>
+                    </div>
                     </div>
             </div>
 
+
+            <div class="arrow-container">
+                <div class="svg-container" id="left-arrow">
+            <svg class="nav-arrow left" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-arrow prev-arrow">
+  <polyline points="15 18 9 12 15 6"></polyline>
+</svg>
+</div>
+
+<div class="svg-container" id="right-arrow">
+<svg class="nav-arrow right" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-arrow next-arrow">
+  <polyline points="9 18 15 12 9 6"></polyline>
+</svg>
+</div>
+</div>
+        </div>
+
+        <!-- Hero TV Section -->
+         <div class="hero-tv">
+        <div id="container">
+  <div id="monitor">
+    <div id="monitorscreen"></div>
+    <video id="video" autoplay loop muted>
+        <source src="videos/LebronCleveland1(1).mp4">
+    </video>
+  </div>
+</div>
+</div>
+            
         </div>
     </div>
 </section>
@@ -223,6 +290,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
     <script src="index.js"></script>
+
    
 
 

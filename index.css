@@ -1,3 +1,6 @@
+/* This CSS file contains all the opening animations and landing page.
+The documentary parts have their own file. */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -111,7 +114,7 @@ h1 {
 .hide-loader2 {
     display: none;
 }
-    
+   
 
 
 .loader2 {
@@ -237,11 +240,13 @@ h1 {
  .letter-splitter.top {
     clip-path: inset(0 0 50% 0);
     display: inline-block;
+    z-index: 11;
  }
 
  .letter-splitter.bottom {
     clip-path: inset(50% 0 0 0);
     display: inline-block;
+    z-index: 11;
  }
 
  .letter-mask {
@@ -279,31 +284,46 @@ h1 {
  /* Landing Page */
 
  #landing-page {
-    background-color: grey;
+    background-image: url(assets/cavaliers\ \(1\).jpg);
+    background-position: center;
     height: 100vh;
     width: 100vw;
     display: none;
-    grid-template-rows: auto 1fr;
+    flex-direction: row;
     overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+    clip-path: inset(0 -100vmax);
  }
+
+ 
 
  .h2-cleveland, .h2-miami, .h2-la {
     text-align: center;
-    cursor: pointer;
     text-decoration: underline;
  }
 
- .h2-cleveland {
-
- }
-
- .h2-miami {
-
+ .h2-miami, .h3-miami {
+    color: #FF2400
  }
 
  .h2-la {
-    
+    color: rgb(241, 206, 3);
  }
+
+ .h3-la {
+    color: rgb(241, 206, 3);
+ }
+
+
+ /* Hide h3 text on cards behind top card */
+
+ .h3-cleveland.two, .h3-miami, .h3-la {
+    display: none;
+ }
+
+
+ /* Cards */
 
  .card-container {
     display: flex;
@@ -313,15 +333,22 @@ h1 {
     justify-content: center;
  }
 
+ .js-top-card {
+    z-index: 10 !important;
+ }
+
  .cards {
     background-color: red;
     height: 55vh;
-    align-self: center;
+    min-height: 470px;
     border-radius: 10px;
     width: 22rem;
     position: absolute;
     transform-origin: 50% 150%;
     box-shadow: 5px 5px 6px black;
+    top: 23%;
+    left: 14.5%;
+    transition: all 0.5s ease-in-out;
  }
 
  .cards.first-stint {
@@ -344,22 +371,29 @@ h1 {
     z-index: 0;
  }
 
-
- .top-half {
-    background-color: black;
-    border-radius: 10px;
- }
-
  .top-half {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: black;
+    border-top-left-radius: 10px;
+ }
+
+ .lebron-images {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px 10px 0px 0px;
  }
 
  .top-half, .bottom-half {
     height: 50%;
     width: 100%;
-  
+ }
+
+ .lebron-videos {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
  }
 
  .bottom-half {
@@ -372,6 +406,171 @@ h1 {
     padding-top: 5px;
     margin: 0 5px
  }
+ 
+
+ /* Button on Cards to Select Parts */
+
+ .card-button-div {
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+    height: 40px;
+ }
+
+ .card-button {
+    padding: 0px 20px;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    height: 40px;
+    transition: height 0.12s ease-in;
+ }
+
+ .card-button:hover {
+    height: 45px;
+ }
+
+ .card-button.one, .card-button.three {
+    background-color: hsla(0, 0%, 0%, 1);
+    color: red;
+    box-shadow: 1px 1px 14px 5px grey;
+ }
+
+ .card-button.two {
+    background-color: rgb(231, 10, 10);
+    color: black;
+    box-shadow: 1px 1px 14px 5px black;
+ }
+
+ .card-button.four {
+    background-color: rgb(241, 206, 3);
+    color: #9c0f85ff;
+    box-shadow: 1px 1px 14px 5px black;
+ }
+
+
+ /* Container for arrows to cycle cards and TV video */
+
+ .arrow-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+ }
+
+ .svg-container {
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    border: white 3px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    pointer-events: all;
+ }
+
+ .nav-arrow {
+    width: 100%;
+    height: 70%
+    }
+
+ .nav-arrow.left {
+    position: relative;
+    right: 1px;
+    width: 100%;
+    height: 70%
+ }
+
+ .svg-container:hover .nav-arrow.left {
+    transform: translateX(-50px);
+    transition: transform 0.6s ease-in-out;
+ }
+
+.svg-container:hover .nav-arrow.right {
+    transform: translateX(50px);
+    transition: transform 0.6s ease-in-out;
+ }
+
+
+ /* Right Side TV */
+ 
+ .hero-tv {
+    display: flex;
+    width: 100%;
+    position: relative;
+    left: 22%;
+    transform: scale(80%);
+    margin: 0 auto;
+ }
+
+ #container {
+  max-width: 650px;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  max-width: 600px;
+}
+
+video {
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 99.5%;
+    border-radius: 5px;
+}
+
+#monitor {
+	background: #000; 
+	position: relative;
+	border-top: 3px solid #888; 
+	margin: 5%;
+	padding: 2% 2% 4% 2%; 
+	border-radius: 10px; 
+	border-bottom-left-radius: 50% 2%; 
+	border-bottom-right-radius: 50% 2%; 
+	transition: margin-right 1s;
+    transform-style: preserve-3d;
+    transform: perspective(1000px) rotateY(-15deg);
+    box-shadow: 0 0 20px black;
+    width: 100%;
+    height: auto;
+}
+
+#monitor:after {
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: 3%;
+	left: 36%;
+	height: .5%; 
+	width: 28%;
+	background: #ddd; 
+	border-radius: 50%; 
+	box-shadow: 0 0 3px 0 white; 
+}
+
+#monitorscreen {
+	position: relative;
+    background-color: #777;
+	background-size: cover; 
+	background-position: top center;
+	height: 0; 
+	padding-bottom: 56.25%; 
+	position: relative;
+	overflow: hidden;
+}
+
+
 
 
 
@@ -401,6 +600,10 @@ h1 {
         transform: translateY(-50%);
     }
 
+    @media only screen and (max-width: 400px) {
+       
+    }
+
    
     .bg-effect:nth-child(2) {
         display: none;
@@ -425,6 +628,73 @@ h1 {
 
 /* Media Query For Landing Page */
 
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 1185px) {
+    .hero-tv {
+        transform: scale(95%)
+    }
+}
 
+@media only screen and (max-width: 1022px) {
+
+     .cards {
+        width: 18rem;
+        left: 16%;
+     }
+
+     .hero-tv {
+        transform: scale(65%)
+     }
+}
+
+@media only screen and (max-width: 880px) {
+    .card-container {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .cards {
+        left: 5%;
+        right: 0;
+        margin: auto;
+        width: 270px;
+    }
+
+    .hero-tv {
+        display: none;    
+    }  
+}
+
+@media (max-height: 700px) {
+    .cards {   
+        min-height: 460px;
+        top: 15%; 
+    }
+}
+
+@media only screen and (max-width: 660px) {
+    .cards {
+        left: 6%;
+    }
+}
+
+@media only screen and (max-width: 580px) {
+    .cards {
+        width: 300px;
+        transform: translateX(0%) !important;
+        right: 10%
+    }
+}
+
+@media only screen and (max-width: 460px) {
+    .cards {
+        left: 9%;
+    }
+}
+
+@media only screen and (max-width: 405px) {
+    .cards {
+        left: 9%;
+        width: 265px;
+    }
 }
