@@ -166,15 +166,14 @@ h1 {
 	align-items: center;
 	justify-content: center;
 	width: 420px;
-	height: 27vh;
+	height: auto;
+    aspect-ratio: 16 / 9;
 	background: papayawhip;
 	border-radius: 5px;
 
 }
 
 .holder-mask {
-    height: 25vh;
-    width: auto;
     overflow: hidden;
     clip-path:polygon(30% 30%, 70% 30%, 70% 70%, 30% 70%);
 }
@@ -183,18 +182,6 @@ h1 {
     height: 100%;
     width: 100%;
     border-radius: 5px;
-}
-
-.image-effect.two {
-    height: 30vh
-}
-
-.image-effect.four {
-    height: 27vh;
-}
-
-.image-effect-eight {
-    height: 30vh;
 }
 
  .h2-hider1, .h2-hider2, .h2-hider3, .h2-hider4 {
