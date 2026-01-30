@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>King of the Court</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="part1-files/cleveland.css">
 
     <!--Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,7 +26,7 @@
 
     <section class="hero">
         <!--Remove display none later-->
-        <div class="loader" >
+        <div class="loader" style>
             <div class="translate-left"></div>
             <div class="translate-right"></div>
             <div class="inner-circle"></div>
@@ -44,7 +45,7 @@
         <section>
         <div class="bg-swapper"></div>
         <!--Remove display none later-->
-        <div class="hide-loader2" >
+        <div class="hide-loader2" style>
             <div class="card-holder">
                 <h2 class="h2-hider1">Cleveland</h2>
                 <h2 class="h2-hider2">Miami</h2>
@@ -145,25 +146,32 @@
        </section>
 
 
+
        <!--Landing Page-->
 
        <section>
+
+        <!--Fade effect for buttons on click to enter parts-->
+        <div id="cleveland-fader"></div>
+        <div id="miami-fader"></div>
+        <div id="second-stint-fader"></div>
+        <div id="lakers-fader"></div>
+
+
     <div class="hero-container" id="landing-page">
         
-        
-        <div class="card-container">
-            
+        <div class="card-container">   
             <div class="cards first-stint js-top-card">
                 <div class="top-half"> 
-                    <img class="lebron-images" src="assets/homepage-cleveland1.jpg">
-                    <video class="lebron-videos" muted loop playsinline preload="none">
+                    <img class="lebron-images" src="assets/homepage-cleveland1.jpg" alt="LeBron James Cleveland Cavaliers image">
+                    <video class="lebron-videos" muted loop playsinline preload="none" alt="LeBron James Cleveland Cavaliers Highlights">
                         <source src="videos/LebronCleveland1(1).mp4">
                     </video>
                 </div>
                 <div class="bottom-half">
                      <h2 class="h2-cleveland">Cleveland</h2>
                         <div class="card-description">
-                            <h3 class="h3 h3-cleveland">Relive LeBron’s explosive rise to stardom in the beginning of a journey that would redefine basketball history.</h3>
+                            <h3 class="h3 h3-cleveland">Relive LeBron’s explosive rise to stardom. The beginning of a journey that would redefine basketball history.</h3>
                              <div class="card-button-div">
                             <button class="card-button one">Enter Part 1</button>
                             </div>
@@ -173,15 +181,15 @@
 
             <div class="cards miami">
                 <div class="top-half">
-                    <img class="lebron-images" src="assets/homepage-miami.jpg">
-                    <video class="lebron-videos" muted loop playsinline preload="none">
+                    <img class="lebron-images" src="assets/homepage-miami.jpg" alt="LeBron James Miami Heat image">
+                    <video class="lebron-videos" muted loop playsinline preload="none" alt="LeBron James Miami Heat highlights">
                         <source src="videos/LebronMiami1(1).mp4">
                     </video>
                 </div>
                 <div class="bottom-half">
                     <h2 class="h2-miami">Miami</h2>
                     <div class="card-description">
-                        <h3 class="h3 h3-miami">Experience the emergence of the Miami Heat Big 3. LeBron joins up with Dwyane Wade and Chris Bosh to 
+                        <h3 class="h3 h3-miami">LeBron joins up with Dwyane Wade and Chris Bosh to form the Miami Heat Big 3 and
                             win championships in South Beach.
                         </h3>
                         <div class="card-button-div">
@@ -194,15 +202,15 @@
 
             <div class="cards second-stint">
                 <div class="top-half">
-                    <img class="lebron-images" src="assets/homepage-cleveland2.jpg">
-                    <video class="lebron-videos" muted loop playsinline preload="none">
+                    <img class="lebron-images" src="assets/homepage-cleveland2.jpg" alt="LeBron James 2nd Stint">
+                    <video class="lebron-videos" muted loop playsinline preload="none" alt="LeBron James 2nd Stint Highlights">
                         <source src="videos/Lebron2ndStint(1).mp4">
                     </video>
                 </div>
                 <div class="bottom-half">
                     <h2 class="h2-cleveland">Second-Stint</h2>
                      <div class="card-description">
-                        <h3 class="h3 h3-cleveland two">LeBron returns to Cleveland after his success in Miami with one goal in mind: bringing a championship to the city.
+                        <h3 class="h3 h3-cleveland two">LeBron returns to Cleveland to bring a championship to the city.
                             Relive LeBron's historic playoff runs.
                         </h3>
                         <div class="card-button-div">
@@ -214,8 +222,8 @@
 
             <div class="cards lakers">
                 <div class="top-half">
-                    <img class="lebron-images" src="assets/homepage-lakers.jpg">
-                    <video class="lebron-videos" muted loop playsinline preload="none">
+                    <img class="lebron-images" src="assets/homepage-lakers.jpg" alt="LeBron James Lakers">
+                    <video class="lebron-videos" muted loop playsinline preload="none" alt="LeBron James Lakers highlights">
                         <source src="videos/LebronLakers(1).mp4">
                     </video>
                 </div>
@@ -268,28 +276,58 @@
 
 
 
+<!--Documentary Part 1-->
+
+
+<!--Header-->
+<main id="cleveland-body" style="display: none">
+
+
+<header class="cleveland-header">
+    <div class="home-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
+  <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+  <path d="M0 0h24v24H0z" fill="none"/>
+</svg></div>
+    <div class="center-title"><h1 class="cleveland-title">King of the Court Part 1</h1></div>  
+    <div class="next-button"><svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24"  fill="white">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+</svg></div>
+    
+</header>
+
+
+<!--Beginning-->
+
+<section>
+
+<div class="parent-draft">
+    <div class="left-draft">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="right-draft">
+            <img class="draft-img" src="assets/homepage-lakers.jpg">
+        </div>
+    
+</div>
+
+</section>
+
+
+</main>
 
 
 
 
-<!--Part Selector-->
 
 
 
-
-
-
-
-
-
-
-
-
-
+<!--JavaScript files, GSAP, Custom Ease, and ScrollTrigger-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
     <script src="index.js"></script>
+    <script src="part1-files/cleveland.js"></script>
 
    
 

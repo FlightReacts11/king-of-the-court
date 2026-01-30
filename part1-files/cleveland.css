@@ -1,0 +1,62 @@
+#cleveland-body {
+    color: white;
+    background-color: black;
+}
+
+.cleveland-header {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.cleveland-header svg {
+    display: block;
+    height: 50px;
+}
+
+.center-title {
+    display: flex;
+    justify-content: center;
+}
+
+.home-button {
+    margin-left: 5px;
+}
+
+.next-button {
+    margin-right: 5px;
+}
+
+
+/* Beginning */
+
+.parent-draft {
+    width: 100%;
+    margin-top: 8%;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.left-draft, .right-draft {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.left-draft {
+
+}
+
+.right-draft {
+
+}
+
+.draft-img {
+    height: 250px;
+    width: auto;
+    max-width: 100%;
+}

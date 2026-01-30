@@ -3,6 +3,7 @@ The documentary parts have their own file. */
 
 // Opening Movie Animation Part 1 //
 
+
 let count = 10;
 let timer = document.querySelector('.countdown');
 
@@ -461,12 +462,16 @@ tl.to(".letter-splitter.bottom", {
 
 // Homescreen Section //
 
-function cardAnimation() {
+function landingPageLoad() {
     gsap.set("#landing-page", {
         display: "flex",
     })
 }
 
+// remove function call later after testing //
+/*
+landingPageLoad();
+*/
 
 
 
@@ -672,7 +677,4 @@ function videoHandler() {
 window.addEventListener("resize", () => {
     videoHandler()
 })
-
-/*
 videoHandler()
-*/

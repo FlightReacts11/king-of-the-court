@@ -270,13 +270,22 @@ h1 {
 
  /* Landing Page */
 
+ #cleveland-fader {
+    background-color: black;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    opacity: 0;
+    position: fixed;
+    pointer-events: none;
+ }
+
  #landing-page {
     background-image: url(assets/cavaliers\ \(1\).jpg);
     background-position: center;
     height: 100vh;
     width: 100vw;
     display: none;
-    flex-direction: row;
     overflow: hidden;
     position: relative;
     margin: 0 auto;
@@ -313,11 +322,7 @@ h1 {
  /* Cards */
 
  .card-container {
-    display: flex;
-    gap: 30px;
-    padding: 0px 10px;
-    align-items: center;
-    justify-content: center;
+    padding: 0px 10px; 
  }
 
  .js-top-card {
@@ -327,6 +332,7 @@ h1 {
  .cards {
     background-color: red;
     height: 55vh;
+    max-height: 500px;
     min-height: 470px;
     border-radius: 10px;
     width: 22rem;
@@ -359,9 +365,6 @@ h1 {
  }
 
  .top-half {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: black;
     border-top-left-radius: 10px;
  }
@@ -400,7 +403,7 @@ h1 {
  .card-button-div {
     display: flex;
     justify-content: center;
-    margin-top: 10%;
+    margin-top: 9%;
     height: 40px;
  }
 
@@ -578,7 +581,7 @@ video {
 
 /* Media Query For Animation Part 2 */
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 868px) {
     .holder1, .holder2, .holder3, .holder4 {
         grid-template-columns: 1fr; 
         width: 100vw;
@@ -587,8 +590,11 @@ video {
         transform: translateY(-50%);
     }
 
-    @media only screen and (max-width: 400px) {
-       
+    @media only screen and (max-width: 425px) {
+       .bg-effect {
+        width: 85%;
+        min-width: 290px;
+       }
     }
 
    
@@ -611,6 +617,11 @@ video {
     }
 }
 
+@media only screen and (max-width: 500px) {
+    .letter-mask-h2 {
+        font-size: 3.7rem;
+    }
+}
 
 
 /* Media Query For Landing Page */
