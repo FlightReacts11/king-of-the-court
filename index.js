@@ -1,6 +1,206 @@
 /* This JS file contains all the opening animations and landing page.
 The documentary parts have their own file. */
 
+
+
+// Three Intro //
+
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+
+
+const scene = new THREE.Scene();
+const light = new THREE.AmbientLight(0xffffff, 1);
+scene.add(light);
+
+const spotLight = new THREE.SpotLight(0xffffff, 6);
+
+spotLight.position.set(-2, 3.3, -2.3);
+spotLight.target.position.set(-5.08, -0.82, 0);
+spotLight.angle = 1.570796;
+scene.add(spotLight.target);
+scene.add(spotLight)
+
+
+const screenWidth = window.innerWidth;
+const screenHeight = window.innerHeight;
+
+let screenRatio = new THREE.WebGLRenderer();
+screenRatio.setSize(screenWidth, screenHeight);
+
+const sceneRenderer = document.getElementById("threejs-container");
+sceneRenderer.appendChild(screenRatio.domElement);
+
+let camera = new THREE.PerspectiveCamera();
+camera.position.set(0, 0, 1);
+
+let clock = new THREE.Clock;
+let realCamera; 
+let pauseAction;
+
+
+const theatreLoader = new GLTFLoader();
+
+theatreLoader.load('blender-model/theatre-intro.glb', function (gltf) {
+    scene.add(gltf.scene);
+    
+    camera = gltf.cameras[0];
+    camera.aspect = screenWidth / screenHeight;
+    camera.updateProjectionMatrix();
+
+    realCamera = new THREE.AnimationMixer(scene);
+    // Camera I made in blender is automatically 0 indexed //
+
+    //Pause action stops the camera at a certain point defined in my animation function//
+    pauseAction = realCamera.clipAction(gltf.animations[0]);
+    realCamera.clipAction(gltf.animations[0]).play(); 
+    realCamera.timeScale = 0.75;
+
+    // Doesnt endlessly loop //
+    let finishingAnimation = realCamera.clipAction(gltf.animations[0]);
+    finishingAnimation.setLoop(THREE.LoopOnce, 1);
+    finishingAnimation.clampWhenFinished = true;
+
+}, undefined, function (error) {
+    console.error("Error loading model", error);
+});
+
+
+// Responsiveness for window resize //
+window.addEventListener('resize', () => {
+    const responsiveScreenWidth = window.innerWidth;
+    const responsiveScreenHeight = window.innerHeight;
+    camera.aspect = responsiveScreenWidth / responsiveScreenHeight;
+    // Always use updateProjectionMatrix after making changes to camera properties //
+    camera.updateProjectionMatrix();
+    screenRatio.setSize(responsiveScreenWidth, responsiveScreenHeight);
+})
+
+
+let isPaused = false;
+
+
+function animate() {
+    
+    // Get delta is a MUST USE for the camera (and I assume other custom animations) to actually work. Forces incrementation //
+    let delta = clock.getDelta();
+    screenRatio.render(scene, camera);
+
+    if (realCamera) {
+        realCamera.update(delta);
+    } else {
+        console.log("Not working correctly");
+    }
+
+
+    if (pauseAction) {
+
+        let currentTime = pauseAction.time;
+
+        if (currentTime >= 11.76 && isPaused === false) {
+            realCamera.timeScale = 0;
+            isPaused = true;
+        }
+    }
+}
+
+window.addEventListener("click", function() {
+    if (isPaused) {
+        realCamera.timeScale = 2;
+    
+
+    gsap.delayedCall(3, nextPart);
+    }
+})
+
+function nextPart() {
+    gsap.set(".true-opening", {
+        display: "none",
+    })
+
+    gsap.set(".hero", {
+        display: "flex",
+    })
+
+    startCountdown();
+}
+
+screenRatio.setAnimationLoop(animate);
+
+function sequencedText() {
+    let tl = gsap.timeline();
+
+    tl.from(".three-opener.one", {
+        opacity: 0,
+        duration: 2,
+        ease: "power2.out",
+        delay: 2,
+        
+        onComplete() {
+            gsap.to(".three-opener.one", {
+                opacity: 0,
+                duration: 1,
+                delay: 1,
+            })
+        }
+    })
+
+    tl.to(".three-opener.two", {
+        opacity: 1,
+        duration: 2,
+        ease: "power2.out",
+        delay: 2.2,
+
+        onComplete() {
+            gsap.to(".three-opener.two", {
+                opacity: 0,
+                duration: 1,
+                delay: 1,
+            })
+        }
+    }, "-=0.5")
+
+    tl.to(".three-opener.three", {
+        opacity: 1,
+        duration: 2,
+        ease: "power2.out",
+        delay: 2.2,
+
+        onComplete() {
+                gsap.to(".three-opener.three", {
+                    opacity: 0,
+                    duration: 1,
+                    delay: 1,
+                })
+        }
+    }, "-=0.5")
+
+    tl.to(".three-opener.four", {
+        opacity: 1,
+        duration: 3.8,
+        ease: "power2.out",
+        delay: 5.1,
+
+        onComplete() {
+            gsap.to(".three-opener.four", {
+                opacity: 0,
+                duration: 1,
+
+            })
+        }
+    })
+    
+}
+
+sequencedText()
+
+
+
+
+
+
+
 // Opening Movie Animation Part 1 //
 
 
@@ -32,7 +232,7 @@ function countdown() {
     
 
 
-
+function startCountdown() {
 gsap.to('.sweeping-gradient', {
     "--angle": "360deg",
     duration: 1,
@@ -73,7 +273,7 @@ onComplete() {
     gsap.delayedCall(1.4, imageSetOne);
 }
 })
-
+}
 
 
 
@@ -460,6 +660,7 @@ tl.to(".letter-splitter.bottom", {
 
 
 
+
 // Homescreen Section //
 
 function landingPageLoad() {
@@ -472,6 +673,7 @@ function landingPageLoad() {
 /*
 landingPageLoad();
 */
+
 
 
 

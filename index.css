@@ -12,9 +12,63 @@ body {
     touch-action: none;
 }
 
-/* Opening Movie Animation Part 1 */
-.loader {
+/* Three inro */ 
+
+#threejs-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
     display: flex;
+    justify-content: center;
+}
+
+.three-opener {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    color: white;
+    font-family: sans-serif;
+    padding: 5px;
+    cursor: default;
+}
+
+.three-opener.one {
+    letter-spacing: 2px;
+    top: 10%;
+}
+
+.three-opener.two {
+    opacity: 0;
+    top: 25%;
+}
+
+.three-opener.three {
+    opacity: 0;
+    top: 40%;
+}
+
+.three-opener.four {
+    opacity: 0;
+    top: 47.5%; 
+    color: black;
+    background-color: white;
+}
+
+@media only screen and (max-width: 500px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+}
+
+
+/* Opening Movie Animation Part 1 */
+
+.hero {
+    display: none;
+}
+
+.loader {
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -101,7 +155,10 @@ body {
     font-size: 10rem;
     z-index: 3;
     pointer-events: none;
-    font-family: 'limelight'
+    font-family: 'limelight';
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
 }
 
 h1 {
@@ -110,10 +167,11 @@ h1 {
 
 /* Opening Movie Animation Part 2 */
 
-
+/*
 .hide-loader2 {
     display: none;
 }
+    */
    
 
 

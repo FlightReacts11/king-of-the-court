@@ -15,18 +15,37 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet">
+
+<!--Three-->
+<script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+</script>
 </head>
 <body>
 
 
-    <!--three.js animation for later. "Real" part 1-->
+    <!--Three intro-->
+    <section class="true-opening">
+        <div id="threejs-container">
+            <h1 class="three-opener one">King of the Court</h1>
+            <h1 class="three-opener two">A Lebron James documentary</h1>
+            <h1 class="three-opener three">By Gabriel Cantarutti-Overton</h1>
+            <div class="begin-background"></div>
+            <h1 class="three-opener four">Click anywhere to begin</h1>
+        </div>
+    </section>
     
     
     <!--Opening Movie Animation Part 1-->
 
     <section class="hero">
         <!--Remove display none later-->
-        <div class="loader" style>
+        <div class="loader" >
             <div class="translate-left"></div>
             <div class="translate-right"></div>
             <div class="inner-circle"></div>
@@ -45,7 +64,7 @@
         <section>
         <div class="bg-swapper"></div>
         <!--Remove display none later-->
-        <div class="hide-loader2" style>
+        <div class="hide-loader2" >
             <div class="card-holder">
                 <h2 class="h2-hider1">Cleveland</h2>
                 <h2 class="h2-hider2">Miami</h2>
@@ -149,7 +168,7 @@
 
        <!--Landing Page-->
 
-       <section>
+       <section >
 
         <!--Fade effect for buttons on click to enter parts-->
         <div id="cleveland-fader"></div>
@@ -189,7 +208,7 @@
                 <div class="bottom-half">
                     <h2 class="h2-miami">Miami</h2>
                     <div class="card-description">
-                        <h3 class="h3 h3-miami">LeBron joins up with Dwyane Wade and Chris Bosh to form the Miami Heat Big 3 and
+                        <h3 class="h3 h3-miami">LeBron joins up with Dwyane Wade and Chris Bosh to form the Big 3 and
                             win championships in South Beach.
                         </h3>
                         <div class="card-button-div">
@@ -326,8 +345,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
-    <script src="index.js"></script>
+    <script type="module" src="index.js"></script>
     <script src="part1-files/cleveland.js"></script>
+
+ 
 
    
 
