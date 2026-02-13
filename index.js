@@ -112,7 +112,9 @@ window.addEventListener("click", function() {
 
     gsap.delayedCall(3, nextPart);
     }
-})
+
+    // Event listener seems to fire on the homepage sometimes this prevents it //
+}, {once: true})
 
 function nextPart() {
     gsap.set(".true-opening", {
