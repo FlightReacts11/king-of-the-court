@@ -2,6 +2,7 @@
 The documentary parts have their own file. */
 
 
+document.body.classList.add("lock-scroll")
 
 // Three Intro //
 
@@ -105,16 +106,17 @@ function animate() {
     }
 }
 
-window.addEventListener("click", function() {
+const clickFix = function() {
     if (isPaused) {
         realCamera.timeScale = 2;
-    
-
-    gsap.delayedCall(3, nextPart);
+        gsap.delayedCall(3, nextPart);
+        window.removeEventListener("click", clickFix);
     }
+}
 
-    // Event listener seems to fire on the homepage sometimes this prevents it //
-}, {once: true})
+window.addEventListener("click", clickFix);
+
+
 
 function nextPart() {
     gsap.set(".true-opening", {
@@ -651,7 +653,8 @@ tl.to(".letter-splitter.bottom", {
     ease: "expo.in",
 
     onComplete() {
-        gsap.set(".movie-part-3", { display: "none" })
+        gsap.set(".movie-part-3", { display: "none" });
+        gsap.set(".letter-splitter", { display: "none" });
     }
 }, "<")
 

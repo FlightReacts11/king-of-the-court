@@ -1,6 +1,9 @@
 #cleveland-body {
     color: white;
     background-color: black;
+    display: none;
+    flex-direction: column;
+    overflow-y: auto !important;
 }
 
 .cleveland-header {
@@ -9,6 +12,8 @@
     height: 100%;
     align-items: center;
     padding-top: 10px;
+    z-index: 9999 !important; /* Forces it to the front */
+    pointer-events: auto !important;
 }
 
 .cleveland-header svg {
@@ -23,6 +28,7 @@
 
 .home-button {
     margin-left: 5px;
+    cursor: pointer;
 }
 
 .next-button {
@@ -32,31 +38,277 @@
 
 /* Beginning */
 
-.parent-draft {
-    width: 100%;
-    margin-top: 8%;
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
+.year-one {
+    margin-top: 10%;
 }
 
-.left-draft, .right-draft {
+.cleveland-body {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.horizontal {
+    display: flex;
+    overflow-x: hidden;
+    flex-wrap: nowrap;
+}
+
+p.year-one-text {
+    margin: 0 10% 40% 10%;
+    padding: 10px;
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    line-height: 22px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+h1 {
+    margin: 30px 0px;
+}
+
+.trigger-row-content {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex: 1;
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-size: min(100%, 850px) auto;
+    border-radius: 4px;
 }
 
-.left-draft {
-
+.horizontal .trigger-row-content {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
 }
 
-.right-draft {
-
+#year-one .trigger-row-content:nth-child(1) {
+    background-image: url("../part1-assets/Omar_Slim_White\,_Lebron_James\,_Dwyane_Wade\,_and_friends\ \(1\).jpg");
 }
 
-.draft-img {
-    height: 250px;
-    width: auto;
-    max-width: 100%;
+#year-one .trigger-row-content:nth-child(2) {
+    background-image: url("../part1-assets/LeBron_James_watches_free_throw\ \(1\).jpg");
+}
+
+#year-one .trigger-row-content:nth-child(3) {
+    background-image: url("../part1-assets/LeBron_James_\(21995062402\)\ \(1\).jpg");
+}
+
+#year-one .trigger-row-content:nth-child(4) {
+    background-image: url("../part1-assets/LeBron_James_-_24336062854\ \(1\).jpg");
+}
+
+#year-one .trigger-row-content:nth-child(5) {
+    background-image: url("../part1-assets/4336974013_c8f4b7c17d_c\ \(1\).jpg");
+}
+
+
+
+
+#year-two .trigger-row-content:nth-child(1) {
+    background-image: url("../part1-assets/Zydrunas_Ilgauskas_and_Mike_Brown\ \(1\).jpg");
+}
+
+#year-two .trigger-row-content:nth-child(2) {
+    background-image: url("../part1-assets/16374510472_92ab0cd0b3_c\ \(1\).jpg");
+}
+
+#year-two .trigger-row-content:nth-child(3) {
+    background-image: url("../part1-assets/22635008012_ae74b27b5f_c\ \(1\).jpg");
+}
+
+#year-two .trigger-row-content:nth-child(4) {
+    background-image: url("../part1-assets/lebron-04-oly\ \(1\).jpg");
+}
+
+#year-two .trigger-row-content:nth-child(5) {
+    background-image: url("../part1-assets/varejao\ \(1\).jpg");
+}
+
+
+
+
+#year-three .trigger-row-content:nth-child(1) {
+    background-image: url("../part1-assets/ai-lebron-and-hughes\ \(1\).jpg");
+}
+
+#year-three .trigger-row-content:nth-child(2) {
+    background-image: url("../part1-assets/LeBron_James_\(31453081901\)\ \(1\).jpg");
+}
+
+#year-three .trigger-row-content:nth-child(3) {
+    background-image: url("../part1-assets/lebron-action.jpg");
+}
+
+#year-three .trigger-row-content:nth-child(4) {
+    background-image: url("../part1-assets/lebron-vs-pistons\ \(1\).jpg");
+}
+
+
+
+#year-four .trigger-row-content:nth-child(1) {
+    background-image: url("../part1-assets/ai-lebron\ \(1\).jpg");
+}
+
+#year-four .trigger-row-content:nth-child(2) {
+    background-image: url("../part1-assets/lebron-vs-pistons-ai\ \(1\).jpg");
+}
+
+#year-four .trigger-row-content:nth-child(3) {
+    background-image: url("../part1-assets/cavaliers-winning\ \(1\).png");
+}
+
+#year-four .trigger-row-content:nth-child(4) {
+    background-image: url("../part1-assets/Lebron_james_76ers\ \(1\).jpg");
+}
+
+#year-four .trigger-row-content:nth-child(5) {
+    background-image: url("..//part1-assets/hughrs-highlight\ \(1\).jpg");
+}
+
+#year-four .trigger-row-content:nth-child(6) {
+    background-image: url("../part1-assets/lebron-action-two\ \(1\).jpg");
+}
+
+
+
+
+#year-five .trigger-row-content:nth-child(1) {
+    background-image: url("../part1-assets/Zydrunas_Ilgauskas_vs._Wizards\ \(1\).jpg");
+}
+
+#year-five .trigger-row-content:nth-child(2) {
+    background-image: url("../part1-assets/Daniel_Gibson_2\ \(1\).jpg");
+}
+
+#year-five .trigger-row-content:nth-child(3) {
+    background-image: url("../part1-assets/allstar-lebron\ \(1\).jpg");
+}
+
+#year-five .trigger-row-content:nth-child(4) {
+    background-image: url("../part1-assets/Ben_Wallace\ \(1\).jpg");
+}
+
+#year-five .trigger-row-content:nth-child(5) {
+    background-image: url("../part1-assets/lebron-stats.jpeg");
+}
+
+#year-five .trigger-row-content:nth-child(6) {
+    background-image: url("../part1-assets/Celtics\ \(1\).jpg");
+}
+
+#year-five .trigger-row-content:nth-child(7) {
+    background-image: url("../part1-assets/Paul_Pierce_LeBron_James\ \(1\).jpg");
+}
+
+
+
+
+#year-six .trigger-row-content:nth-child(1) {
+    background-image: url("../part1-assets/dwight-howard\ \(1\).jpg");
+}
+
+#year-six .trigger-row-content:nth-child(2) {
+    background-image: url("../part1-assets/lebron-vs-dwight-howard\ \(1\).jpg");
+}
+
+#year-six .trigger-row-content:nth-child(3) {
+    background-image: url("../part1-assets/lebron-mvp\ \(1\).jpg");
+}
+
+#year-six .trigger-row-content:nth-child(4) {
+    background-image: url("../part1-assets/LeBron_James_vs._Kobe_Bryant_-_24848604782\ \(1\).jpg");
+}
+
+#year-six .trigger-row-content:nth-child(5) {
+    background-image: url("../part1-assets/new-mo\ \(1\).jpg");
+}
+
+#year-six .trigger-row-content:nth-child(6) {
+    background-image: url("../part1-assets/2008-olympics-ai\ \(1\).jpg");
+}
+
+
+
+
+#year-seven .trigger-row-content:nth-child(1) {
+    background-image: url("../part1-assets/lebron-and-shaq-cleveland\ \(1\).jpg");
+}
+
+#year-seven .trigger-row-content:nth-child(2) {
+    background-image: url("../part1-assets/shaq-boxout\ \(1\).png");
+}
+
+#year-seven .trigger-row-content:nth-child(3) {
+    background-image: url("../part1-assets/antawn-jamison-new\ \(1\).jpg");
+}
+
+#year-seven .trigger-row-content:nth-child(4) {
+    background-image: url("../part1-assets/lebron-mvp-2\ \(1\).jpg");
+}
+
+#year-seven .trigger-row-content:nth-child(5) {
+    background-image: url("../part1-assets/ai-big3\ \(1\).jpg");
+}
+
+#year-seven .trigger-row-content:nth-child(6) {
+    background-image: url("../part1-assets/lebron-interview\ \(1\).jpg");
+}
+
+
+
+.horizontal-reverse {
+    display: flex;
+    overflow-x: hidden;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+}
+
+.horizontal-reverse .trigger-row-content {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+
+
+
+
+.trigger-row-reverse .trigger-row-content {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+
+#trigger-row-two {
+    display: flex;
+    overflow-x: hidden;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+}
+
+@media only screen and (max-width: 800px) {
+    .year-one-text {
+        margin-bottom: 55%
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .year-one-text {
+        font-size: 16px;
+        line-height: 21px;
+        margin-bottom: 95%
+    }
 }
