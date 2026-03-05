@@ -26,6 +26,7 @@
     justify-content: center;
 }
 
+
 .home-button {
     margin-left: 5px;
     cursor: pointer;
@@ -74,13 +75,17 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
+    width: 100vw !important;
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     background-size: min(100%, 850px) auto;
     border-radius: 4px;
+    flex-shrink: 0 !important;
+    min-width: 100vw !important;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 .horizontal .trigger-row-content {
@@ -88,7 +93,6 @@ h1 {
     width: 100vw;
     display: grid;
     place-items: center;
-    flex-shrink: 0;
 }
 
 #year-one .trigger-row-content:nth-child(1) {
@@ -307,8 +311,12 @@ h1 {
 
 @media only screen and (max-width: 500px) {
     .year-one-text {
-        font-size: 16px;
+        font-size: 18px;
         line-height: 21px;
         margin-bottom: 95%
+    }
+
+    .cleveland-title {
+        font-size: 20px;
     }
 }

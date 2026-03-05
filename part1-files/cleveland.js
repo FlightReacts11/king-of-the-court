@@ -25,7 +25,9 @@ function enterPartOne() {
             document.querySelector("#cleveland-fader").style.display = "none",
             document.querySelector("#cleveland-body").style.display = "flex",
 
-            ScrollTrigger.refresh(true)
+            setTimeout(() => {
+        ScrollTrigger.refresh();
+    }, 100);
         }
     })
 
