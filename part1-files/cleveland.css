@@ -304,15 +304,15 @@ h1 {
 }
 
 @media only screen and (max-width: 800px) {
-    .year-one-text {
+    p.year-one-text {
         margin-bottom: 55%
     }
 }
 
 @media only screen and (max-width: 500px) {
-    .year-one-text {
-        font-size: 16px;
-        line-height: 19px;
+    p.year-one-text {
+        font-size: 17px;
+        line-height: 20px;
         margin-bottom: 100%
     }
 
