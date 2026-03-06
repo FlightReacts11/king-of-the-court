@@ -311,8 +311,8 @@ h1 {
 
 @media only screen and (max-width: 500px) {
     p.year-one-text {
-        font-size: 15px;
-        line-height: 20px;
+        font-size: 14px;
+        line-height: 19.5px;
         margin-bottom: 100%
     }
 
