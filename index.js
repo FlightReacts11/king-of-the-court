@@ -6,6 +6,10 @@ document.body.classList.add("lock-scroll")
 
 // Three Intro //
 
+
+
+
+
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
@@ -42,6 +46,10 @@ let pauseAction;
 
 
 const theatreLoader = new GLTFLoader();
+
+window.addEventListener("load", function() {
+
+
 
 theatreLoader.load('blender-model/theatre-intro.glb', function (gltf) {
     scene.add(gltf.scene);
@@ -199,6 +207,7 @@ function sequencedText() {
 
 sequencedText()
 
+})
 
 
 

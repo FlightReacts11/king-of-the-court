@@ -769,3 +769,26 @@ video {
         width: 265px;
     }
 }
+
+
+
+/*Lock user from rotating device which can break animations*/
+
+@media screen and (orientation: landscape) and (max-width: 1024px) {
+    
+    /* Create a black wall over everything */
+    body::after {
+        content: "Portrait Mode Required"; 
+        position: fixed;
+        inset: 0;
+        background: #000; 
+        color: #fff;
+        z-index: 9999999; 
+        
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
