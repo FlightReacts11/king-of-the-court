@@ -792,3 +792,9 @@ video {
         align-items: center;
     }
 }
+
+@media only screen and (max-width: 400px) {
+    .three-opener.four {
+        margin-bottom: 10% !important
+    }
+}
